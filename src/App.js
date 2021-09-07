@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react'
+import TabContent from "./TabContent"
 
-function App() {
+const url = 'https://course-api.com/react-tabs-project'
+
+const App = () => {
+  const [currentTab, setCurrentTab] = useState("");
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Experience</h1>
+
+      <div className="btn-container">
+        <button className="btn btn-selected">name 1</button>
+        <button className="btn">name 2</button>
+        <button className="btn">name 3</button>
+      </div>
+
+      
+      <TabContent/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
