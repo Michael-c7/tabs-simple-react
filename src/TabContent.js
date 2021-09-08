@@ -1,24 +1,25 @@
 import React from 'react'
 
-const TabContent = () => {
+const TabContent = (props) => {
+  const {company,data,dates,duties,id,order, title} = props;
+  console.log(duties)
     return (
-        <ul className="info-items">
-        {/* <li className="info-item">
-          <header className="info__header">
-            <h2 className="heading">Full Stack Web Developer</h2>
-            <h3 className="name">name 1</h3>
-            <h4 className="date">December 2015 - Present</h4>
-          </header>
-          <ul className="info__roles">
-            <li className="role">asdasd ipsum, dolor sit amet consectetur adipisicing elit. Natus, neque necessitatibus. Qui sit, illum dicta non magnam odit consectetur recusandae maiores quas optio alias harum.</li>
-            <li className="role">46hasd ipsum, dolor sit amet consectetur adipisicing elit. Natus, neque necessitatibus. Qui sit, illum dicta non magnam odit consectetur recusandae maiores quas optio alias harum.</li>
-            <li className="role">Xorem ipsum, dolor sit amet consectetur adipisicing elit. Natus, neque necessitatibus. Qui sit, illum dicta non magnam odit consectetur recusandae maiores quas optio alias harum.</li>
-          </ul>
-        </li> */}
-
-        info items here
+      <li className="info-item">
+      <header className="info__header">
+        <h2 className="heading">{title}</h2>
+        <h3 className="name">{company}</h3>
+        <h4 className="date">{dates}</h4>
+      </header>
+      <ul className="info__roles">
+        {duties.map((duty, index) => {
+         return (
+            <li className="role" key={index}>{duty}</li>
+            )
+        })}
       </ul>
+    </li>
     )
 }
 
 export default TabContent;
+
