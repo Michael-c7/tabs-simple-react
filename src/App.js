@@ -18,6 +18,8 @@ const App = () => {
 
   useEffect(() => {
     getData()
+
+    
   }, [])
 
 
@@ -35,10 +37,18 @@ const App = () => {
       <h1>Experience</h1>
 
       <div className="btn-container">
-        <button className="btn btn-selected" onClick={() => setCurrentTab(0)}>name 0</button>
-        <button className="btn" onClick={() => setCurrentTab(1)}>name 1</button>
-        <button className="btn" onClick={() => setCurrentTab(2)}>name 2</button>
+        {data.map((item, index) => {
+          const {company, id} = item;
+
+          if(currentTab === index) {
+            <button key={id} className="btn btn-selected" onClick={() => setCurrentTab(index)}>{company}</button>
+          }
+          return(
+            <button key={id} className="btn" onClick={() => setCurrentTab(index)}>{company}</button>
+          )
+        })}
       </div>
+
       <ul className="info-items">
         {data.map((item, index) => {
           if(currentTab === index) {
